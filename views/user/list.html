@@ -43,7 +43,13 @@
                     <td>{{.Id}}</td>
                     <td>{{.UserName}}</td>
                     <td>{{.CreateTime}}</td>
-                    <td>{{.Status}}</td>
+                    <td>
+                        {{if .Status}}
+                            <span class="label rounded success" title="启用"></span>
+                        {{else}}
+                            <span class="label rounded" title="禁止"></span>
+                        {{end}}
+                    </td>
                     <td>{{.Remark}}</td>
                     <td>
                         <a href class="md-btn md-raised green md-btn-inline" >编辑</a>
