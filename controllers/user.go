@@ -3,6 +3,7 @@ package controllers
 import (
 	m "flat-goadmin/models"
 	"github.com/beego/wetalk/modules/utils"
+	"github.com/astaxie/beego/orm"
 )
 
 type UserController struct {
@@ -14,7 +15,14 @@ func (this *UserController) Index()  {
 	if err != nil{
 		page = 1;
 	}
-	users,total := m.PageList(page,size)
+	s := this.GetString("s")
+	//查询条件
+	filters := make(map[string] interface{})
+	if s != ""{
+		filters["user_name__icontains"] = s
+		this.Data["s"] = s
+	}
+	users,total := m.PageList(page,size,filters)
 	paginator := utils.NewPaginator(this.Ctx.Request, size, total)
 	this.Data["data"] = users
 	this.Data["paginator"] = paginator
@@ -46,13 +54,27 @@ func (this *UserController) Add()  {
 }
 
 func (this *UserController) Del()  {
-	this.Rsp(true,"Del")
+	id,_:= this.GetInt64("id")
+	_,err := orm.NewOrm().Delete(&m.User{Id:id})
+	if err == nil{
+		this.Redirect("/user",302)
+	}
 }
 
-func (this *UserController) Update()  {
-	this.Rsp(true,"Update")
-}
-
-func (this *UserController) Find()  {
-	this.Rsp(true,"Find")
+func (this *UserController) Edit()  {
+	id,_ := this.GetInt64("id")
+	user := m.User{Id:id}
+	if this.IsGet(){
+		orm.NewOrm().Read(&user);
+		this.Data["user"] = user
+		this.Layout = layout
+		this.TplName = "user/edit.html"
+	}else {
+		this.ParseForm(&user)
+		if _,err := m.UpdateUser(&user);err == nil{
+			this.Redirect("/user",302)
+		}else {
+			this.Rsp(false,err.Error())
+		}
+	}
 }

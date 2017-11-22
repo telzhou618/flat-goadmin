@@ -1,0 +1,50 @@
+<footer class="dker p-a">
+    <div class=" row">
+        <div class="col-sm-4 text-left">
+            <small class="text-muted inline m-t-sm m-b-sm">共{{.paginator.Nums }}条数据 每页{{.paginator.PerPageNums}}条 当前{{.paginator.Page}}/{{.paginator.PageNums}}页</small>
+        </div>
+        {{if .paginator}}
+        {{if gt .paginator.PageNums 1}}
+        <div class="col-sm-8 text-right text-center-xs">
+            <ul class="pagination pagination-sm">
+                {{if .paginator.HasPrev}}
+                <li>
+                    <a href="{{.paginator.PageLinkFirst}}" class="md-btn md-raised">首页</a>
+                </li>
+                <li>
+                    <a href="{{.paginator.PageLinkPrev}}" class="md-btn md-raised">&lt;</a>
+                </li>
+                {{else}}
+                <li class="disabled">
+                    <a class="md-btn md-raised">首页</a>
+                </li>
+                <li class="disabled">
+                    <a class="md-btn md-raised">&lt;</a>
+                </li>
+                {{end}}
+                {{range $index, $page := .paginator.Pages}}
+                <li {{if $.paginator.IsActive .}} class="active"{{end}}>
+                    <a href="{{$.paginator.PageLink $page}}" class="md-btn md-raised">{{$page}}</a>
+                </li>
+                {{end}}
+                {{if .paginator.HasNext}}
+                <li>
+                    <a href="{{.paginator.PageLinkNext}}" class="md-btn md-raised">&gt;</a>
+                </li>
+                <li>
+                    <a href="{{.paginator.PageLinkLast}}" class="md-btn md-raised">末页</a>
+                </li>
+                {{else}}
+                <li class="disabled">
+                    <a class="md-btn md-raised">&gt;</a>
+                </li>
+                <li class="disabled">
+                    <a class="md-btn md-raised">末页</a>
+                </li>
+                {{end}}
+            </ul>
+        </div>
+        {{end}}
+        {{end}}
+    </div>
+</footer>

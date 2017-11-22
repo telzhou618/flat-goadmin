@@ -6,28 +6,26 @@
             <h3>用户管理</h3>
         </div>
         <div class="row p-a">
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <a href="/user/add" class="md-btn md-raised m-b-sm w-xs white">新增</a>
-                <a href="/user/add" class="md-btn md-raised m-b-sm w-xs red">批量删除</a>
             </div>
             <div class="col-sm-3">
+                <form action="/user" method="get">
                 <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" name="s" class="form-control" value="{{.s}}" placeholder="Search">
                     <span class="input-group-btn">
-            <button class="btn b-a white" type="button">Go!</button>
-          </span>
+                        <input class="btn b-a green md-btn md-raised" type="submit" value="GO">
+                      </span>
                 </div>
+                </form>
+            </div>
+            <div class="col-sm-1">
             </div>
         </div>
         <div class="table-responsive">
             <table class="table table-striped b-t">
                 <thead>
                 <tr>
-                    <th style="width:20px;">
-                        <label class="ui-check m-0">
-                            <input type="checkbox"><i></i>
-                        </label>
-                    </th>
                     <th>Id</th>
                     <th>用户名</th>
                     <th>创建时间</th>
@@ -39,10 +37,9 @@
                 <tbody>
                 {{range .data}}
                 <tr>
-                    <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
                     <td>{{.Id}}</td>
                     <td>{{.UserName}}</td>
-                    <td>{{.CreateTime}}</td>
+                    <td>{{.CreateTime | timeFmt}}</td>
                     <td>
                         {{if .Status}}
                             <span class="label rounded success" title="启用"></span>
@@ -52,66 +49,15 @@
                     </td>
                     <td>{{.Remark}}</td>
                     <td>
-                        <a href class="md-btn md-raised green md-btn-inline" >编辑</a>
-                        <a href class="md-btn md-raised red md-btn-inline" >删除</a>
+                        <a href="/user/edit?id={{.Id}}" class="md-btn md-raised green md-btn-inline" >编辑</a>
+                        <a href="/user/del?id={{.Id}}" onclick="return confirm('确定删除该条记录?')" class="md-btn md-raised red md-btn-inline" >删除</a>
                     </td>
                 </tr>
                 {{end}}
                 </tbody>
             </table>
         </div>
-        <footer class="dker p-a">
-            <div class=" row">
-                <div class="col-sm-4 text-left">
-                    <small class="text-muted inline m-t-sm m-b-sm">共{{.paginator.Nums }}条数据 每页{{.paginator.PerPageNums}}条 当前{{.paginator.Page}}/{{.paginator.PageNums}}页</small>
-                </div>
-                {{if .paginator}}
-                {{if gt .paginator.PageNums 1}}
-                <div class="col-sm-8 text-right text-center-xs">
-                <ul class="pagination pagination-sm">
-                    {{if .paginator.HasPrev}}
-                    <li>
-                        <a href="{{.paginator.PageLinkFirst}}" class="md-btn md-raised">首页</a>
-                    </li>
-                    <li>
-                        <a href="{{.paginator.PageLinkPrev}}" class="md-btn md-raised">&lt;</a>
-                    </li>
-                    {{else}}
-                    <li class="disabled">
-                        <a class="md-btn md-raised">首页</a>
-                    </li>
-                    <li class="disabled">
-                        <a class="md-btn md-raised">&lt;</a>
-                    </li>
-                    {{end}}
-                    {{range $index, $page := .paginator.Pages}}
-                    <li {{if $.paginator.IsActive .}} class="active"{{end}}>
-                        <a href="{{$.paginator.PageLink $page}}" class="md-btn md-raised">{{$page}}</a>
-                    </li>
-                    {{end}}
-                    {{if .paginator.HasNext}}
-                    <li>
-                        <a href="{{.paginator.PageLinkNext}}" class="md-btn md-raised">&gt;</a>
-                    </li>
-                    <li>
-                        <a href="{{.paginator.PageLinkLast}}" class="md-btn md-raised">末页</a>
-                    </li>
-                    {{else}}
-                    <li class="disabled">
-                        <a class="md-btn md-raised">&gt;</a>
-                    </li>
-                    <li class="disabled">
-                        <a class="md-btn md-raised">末页</a>
-                    </li>
-                    {{end}}
-                </ul>
-                </div>
-                {{end}}
-                {{end}}
-            </div>
-        </footer>
+            {{template "common/pagebar.html" .}}
     </div>
     </div>
-
-    <!-- ############ PAGE END-->
 </div>

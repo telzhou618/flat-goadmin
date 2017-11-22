@@ -6,9 +6,11 @@ import (
 	"flat-goadmin/models"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
+	"flat-goadmin/lib"
 )
 
 func main() {
+	beego.AddFuncMap("timeFmt",lib.TimeFormat)
 	beego.Run()
 }
 func init()  {
