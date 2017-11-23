@@ -22,13 +22,13 @@ func  AddUser(user *User) (int64,error)  {
 	return id,err
 }
 
-func TableName() (string){
+func UserTableName() (string){
 	return "user"
 }
 
 func PageList(page,size int,filters map[string] interface{}) ([]*User,int64){
 	users := make([]*User, 0)
-	qt := orm.NewOrm().QueryTable(TableName())
+	qt := orm.NewOrm().QueryTable(UserTableName())
 	if len(filters) > 0 {
 		for k,v := range filters{
 			qt = qt.Filter(k,v)

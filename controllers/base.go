@@ -13,6 +13,11 @@ type BaseController struct {
 	beego.Controller
 }
 
+func (c *UserController) Prepare()  {
+
+}
+
+
 //转JSON
 func (c *BaseController)Rsp(success bool,str string)  {
 	c.Data["json"] = &map[string]interface{}{"success":success,"data" : str}
@@ -37,4 +42,8 @@ func (c *BaseController) IsPOST() bool {
 	}else {
 		return false
 	}
+}
+
+func (c *BaseController) Redirect302(url string) {
+	c.Redirect(url,302)
 }

@@ -32,39 +32,31 @@
                     <i class="material-icons">&#xe5d2;</i>
                 </a>
                 <!-- / -->
-
                 <!-- Page title - Bind to $state's title -->
-                <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+                <div class="mb-0 h5 no-wrap">{{.modulName}}</div>
 
                 <!-- navbar collapse -->
-                <div class="collapse navbar-collapse" id="collapse">
-                    <span>VACOMALL</span>
-                </div>
+
                 <!-- / navbar collapse -->
 
                 <!-- navbar right -->
-                <ul class="nav navbar-nav ml-auto flex-row">
-                    <li class="nav-item dropdown pos-stc-xs">
-                        <a class="nav-link mr-2" href data-toggle="dropdown">
-                            <i class="material-icons">&#xe7f5;</i>
-                            <span class="label label-sm up warn">3</span>
-                        </a>
-                    </li>
+
+                <!-- / navbar right -->
+                <ul class="nav navbar-nav flex-row align-items-center ml-auto">
                     <li class="nav-item dropdown">
-                        <a class="nav-link p-0 clear" href="#" data-toggle="dropdown">
-                  <span class="avatar w-32">
+                        <a href="" class="nav-link dropdown-toggle text-ellipsis" data-toggle="dropdown" aria-expanded="false">
+                    <span class="avatar w-32">
                     <img src="/static/assets/images/a0.jpg" alt="...">
                     <i class="on b-white bottom"></i>
-                  </span>
-                        </a>
-                    </li>
-                    <li class="nav-item hidden-md-up">
-                        <a class="nav-link pl-2" data-toggle="collapse" data-target="#collapse">
-                            <i class="material-icons">&#xe5d4;</i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- / navbar right -->
+                        </span>
+                                <span class="hidden-sm-down _500">Jean</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-overlay pull-right ng-scope">
+                                <a class="dropdown-item" ui-sref="app.docs" href="#">帮助</a>
+                                <a class="dropdown-item" href="#">退出</a>
+                            </div>
+                        </li>
+                    </ul>
             </div>
         </div>
         <div class="app-footer">
@@ -74,7 +66,7 @@
                     <a ui-scroll-to="content"><i class="fa fa-long-arrow-up p-x-sm"></i></a>
                 </div>
                 <div class="nav">
-                    <a class="nav-link" href="/static/">About</a>
+                    <a class="nav-link" href="../">About</a>
                     <a class="nav-link" href="http://themeforest.net/user/flatfull/portfolio?ref=flatfull">Get it</a>
                 </div>
             </div>

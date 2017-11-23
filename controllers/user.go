@@ -11,10 +11,7 @@ type UserController struct {
 }
 
 func (this *UserController) Index()  {
-	page,err:= this.GetInt("p")
-	if err != nil{
-		page = 1;
-	}
+	page,_:= this.GetInt("p",1)
 	s := this.GetString("s")
 	//查询条件
 	filters := make(map[string] interface{})
@@ -33,21 +30,17 @@ func (this *UserController) Add()  {
 	this.Layout = layout
 	if this.IsGet(){
 		this.TplName = "user/add.html"
-		return
 	}else {
 		user := m.User{}
 		if err := this.ParseForm(&user); err != nil{
 			this.TplName = "user/add.html"
 			this.Data["error"] = err.Error()
-			return
 		}else {
 			if _,err := m.AddUser(&user); err !=nil{
 				this.TplName = "user/add.html"
 				this.Data["error"] = err.Error()
-				return
 			}else {
-				this.Redirect("/user",302)
-				return
+				this.Redirect302("/user")
 			}
 		}
 	}
@@ -57,7 +50,7 @@ func (this *UserController) Del()  {
 	id,_:= this.GetInt64("id")
 	_,err := orm.NewOrm().Delete(&m.User{Id:id})
 	if err == nil{
-		this.Redirect("/user",302)
+		this.Redirect302("/user")
 	}
 }
 
@@ -72,7 +65,7 @@ func (this *UserController) Edit()  {
 	}else {
 		this.ParseForm(&user)
 		if _,err := m.UpdateUser(&user);err == nil{
-			this.Redirect("/user",302)
+			this.Redirect302("/user")
 		}else {
 			this.Rsp(false,err.Error())
 		}
