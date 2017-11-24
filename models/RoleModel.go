@@ -3,10 +3,11 @@ package models
 import "github.com/astaxie/beego/orm"
 
 type Role struct {
-	Id int `pk:"auto" form:"id"`
+	Id int64 `pk:"auto" form:"id"`
 	RoleName string `orm:"size(32)" form:"roleName"`
 	Remark string `orm:"size(300)" form:"remark"`
 	User []*User `orm:"reverse(many)"`
+	Menu []*Menu `orm:"rel(m2m)"`
 }
 
 func RoleTableName() (string){

@@ -40,13 +40,13 @@ func (this *RoleController) Add()  {
 }
 
 func (this *RoleController) Del()  {
-	id,_:= this.GetInt("id")
+	id,_:= this.GetInt64("id")
 	orm.NewOrm().Delete(&m.Role{Id:id})
 	this.Redirect302("/role")
 }
 
 func (this *RoleController) Edit()  {
-	id,_:= this.GetInt("id")
+	id,_:= this.GetInt64("id")
 	role := m.Role{Id:id}
 	o := orm.NewOrm()
 	if this.IsGet(){

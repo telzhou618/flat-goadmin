@@ -1,0 +1,93 @@
+<div ui-view class="app-body" id="view">
+
+    <!-- ############ PAGE START-->
+    <div class="padding">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box">
+                    <div class="box-header">
+                        <h2>新增菜单</h2>
+                        <small>1、请填写以下信息新增菜单</small>
+                    </div>
+                    <div class="box-divider m-0"></div>
+                    <div class="box-body">
+                        <form role="form" class="text-right" method="post" action="/menu/add" data-validator-option="{theme:'bootstrap', timely:2, stopOnError:false}">
+                            <div class="form-group row">
+                                <label class="col-sm-2">上级菜单</label>
+                                <div class="col-sm-10">
+                                    <select  name="Pid" class="form-control"  data-rule="required;">
+                                        <option value="">--请选择上级菜单--</option>
+                                        <option value="1">系统</option>
+                                        <option value="1">商品</option>
+                                        <option value="1">订单</option>
+                                        <option value="1">采购</option>
+                                        <option value="1">仓储</option>
+                                        <option value="1">数据</option>
+                                        <option value="1">报表</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">菜单编码</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Code" class="form-control" placeholder="01,0101"  data-rule="required;"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">菜单名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Text" class="form-control" placeholder="请输入菜单名称"  data-rule="required;"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">菜单地址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Uri" class="form-control" placeholder="如:/user/list"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">权限资源</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Resource" class="form-control" placeholder="如:user:add"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">图标</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Icon" class="form-control" placeholder="fa-user"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">排序</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="Sort" value="0" class="form-control" placeholder="0" data-rule="integer(+0);"
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2">角色描述</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" rows="3" name="remark" placeholder="角色请输入描述"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2"></label>
+                                <div class="col-sm-10 text-left">
+                                    <button type="submit" class="md-btn md-raised m-b-sm w-xs green">提交</button>
+                                    &nbsp;<a href="/menu" class="">取消</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ############ PAGE END-->
+</div>
+</div>

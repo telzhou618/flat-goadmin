@@ -1,16 +1,16 @@
-<div id="aside" class="app-aside modal nav-dropdown">
+<div id="aside" class="app-aside modal fade folded md show-text nav-dropdown">
     <!-- fluid app aside -->
-    <div class="left navside dark dk" data-layout="column">
+    <div class="left navside black dk" data-layout="column">
         <div class="navbar no-radius">
             <!-- brand -->
             <a class="navbar-brand">
                 <div ui-include="'/static/assets/images/logo.svg'"></div>
                 <img src="/static/assets/images/logo.png" alt="." class="hide">
-                <span class="hidden-folded inline">Flatkit</span>
+                <span class="hidden-folded inline">VACOMALL</span>
             </a>
             <!-- / brand -->
         </div>
-        <div class="hide-scroll" data-flex>
+        <div flex class="hide-scroll">
             <nav class="scroll nav-light">
 
                 <ul class="nav" ui-nav>
@@ -25,7 +25,7 @@
                         <span ui-include="'/static/assets/images/i_0.svg'"></span>
                       </i>
                     </span>
-                            <span class="nav-text">主面板</span>
+                            <span class="nav-text">桌面</span>
                         </a>
                     </li>
 
@@ -39,30 +39,113 @@
                         <span ui-include="'/static/assets/images/i_7.svg'"></span>
                       </i>
                     </span>
-                            <span class="nav-text">系统管理</span>
+                            <span class="nav-text">用户</span>
                         </a>
                         <ul class="nav-sub">
                             <li>
                                 <a href="/user" >
-                                    <span class="nav-text">用户管理</span>
+                                    <span class="nav-text">用户</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="/role" >
-                                    <span class="nav-text">角色管理</span>
+                                    <span class="nav-text">角色</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="/menu" >
-                                    <span class="nav-text">菜单管理</span>
+                                    <span class="nav-text">菜单</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="/log" >
-                                    <span class="nav-text">日志管理</span>
+                                    <span class="nav-text">日志</span>
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="fa fa-car"></i>
+                            </span>
+                            <span class="nav-text">商品</span>
+                        </a>
+                        <ul class="nav-sub nav-mega">
+                            <li>
+                                <a href="/user" >
+                                    <span class="nav-text">商品</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user" >
+                                    <span class="nav-text">分类</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/user" >
+                                    <span class="nav-text">品牌</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="fa fa-reorder"></i>
+                            </span>
+                            <span class="nav-text">订单</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe896;
+                                <span ui-include="'/static/assets/images/i_7.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">采购</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe896;
+                                <span ui-include="'/static/assets/images/i_7.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">仓储</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe896;
+                                <span ui-include="'/static/assets/images/i_7.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">数据</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe896;
+                                <span ui-include="'/static/assets/images/i_7.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">促销</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a><span class="nav-caret"><i class="fa fa-caret-down"></i> </span>
+                            <span class="nav-icon">
+                                <i class="material-icons">&#xe896;
+                                <span ui-include="'/static/assets/images/i_7.svg'"></span>
+                                </i>
+                            </span>
+                            <span class="nav-text">报表</span>
+                        </a>
                     </li>
                 </ul>
             </nav>
