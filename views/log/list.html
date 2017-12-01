@@ -41,7 +41,7 @@
                 <tr>
                     <td>{{.Id}}</td>
                     <td>{{.LogTitle}}</td>
-                    <td>{{.CreateTime}}</td>
+                    <td>{{.CreateTime | timeFmt}}</td>
                     <td>{{.LogContent}}</td>
                     <td>{{.LogReqUrl}}</td>
                     <td>{{.LogParams}}</td>
