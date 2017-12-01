@@ -7,7 +7,7 @@ import (
 )
 
 func RegModels() {
-	orm.RegisterModel(new(User),new(Role),new(Menu))
+	orm.RegisterModel(new(User),new(Role),new(Menu),new(Log))
 }
 
 func Connect()  {

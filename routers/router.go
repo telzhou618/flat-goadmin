@@ -19,4 +19,5 @@ func init() {
     beego.Router("/user",&controllers.UserController{},"*:Index")
 	beego.Router("/role",&controllers.RoleController{},"*:Index")
 	beego.Router("/menu",&controllers.MenuController{},"*:Index")
+	beego.Router("/log",&controllers.LogController{},"*:Index")
 }
